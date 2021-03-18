@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9cbf552748.js" crossorigin="anonymous"></script>
+     <style>
+
+       .btn{
+         border: 2px solid #E51C27;
+         border-radius: 25px;
+         color: #E51C27;
+       }
+     </style>
+  </head>
+
+
+<body>
+
+    <span class="btn displayNo"></span>
+    
+    <script>
+          var displayNo = document.querySelector('.displayNo');
+          let ourRequest = new XMLHttpRequest();
+          ourRequest.open('GET', 'https://vahidsediqi.github.io/GoJeeks.com/data.json')
+        
+          ourRequest.onload = function() {
+             let ourData = JSON.parse(ourRequest.responseText);
+             renderHTML(ourData);
+          }
+          
+          ourRequest.send();
+      
+          function renderHTML(data) {
+              let = text = `<i class="fas fa-phone"></i> ${data.number}`;
+            displayNo.innerHTML = text ;
+          }
+        </script>
+
+</body>
+</html>
