@@ -10,9 +10,8 @@
      <style>
 
        .btn{
-         border: 2px solid #E51C27;
-         border-radius: 25px;
-         color: #E51C27;
+         color: #fff;
+         background-color: #2E2B7B;
        }
      </style>
   </head>
@@ -20,12 +19,12 @@
 
 <body>
 
-    <span class="btn displayNo"></span>
+    <a class="btn displayNo" href=""></a>
     
     <script>
           var displayNo = document.querySelector('.displayNo');
           let ourRequest = new XMLHttpRequest();
-          ourRequest.open('GET', 'https://vahidsediqi.github.io/GoJeeks.com/data.json')
+          ourRequest.open('GET', 'https://seodata.github.io/telephon-numbers/numbers.json')
         
           ourRequest.onload = function() {
              let ourData = JSON.parse(ourRequest.responseText);
@@ -35,8 +34,10 @@
           ourRequest.send();
       
           function renderHTML(data) {
-              let = text = `<i class="fas fa-phone"></i> ${data.number}`;
-            displayNo.innerHTML = text ;
+              let = text = `<i class="fas fa-phone"></i> ${data.no}`;
+              let phone = data.no;
+              displayNo.innerHTML = text;
+              displayNo.setAttribute('href', `tel: ${phone}`);
           }
         </script>
 
